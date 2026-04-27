@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <title>Clicker Game</title>
+</head>
+
+<body>
+
+    <div class="left">
+        <div class="upgrade cliqueur flex" data-cout="5" data-lvl="0" data-clickpower="1" data-unlock="10"
+            onclick="achat(this,achatCliqueur)">
+            <div class="leftUpgrade">
+                <img src="Images/curseurNeige.png" draggable="false" width="100px" alt="" class="">
+            </div>
+            <div class="middleUpgrade flex">
+                <h4>Cliqueur Des Neiges</h4>
+                <span class="descriptionUpgrade">Fourni par les Papatissier</span>
+                <div class="flex coutStyle">
+                    <span>Cout : </span><span class="cout">5</span><img src="Images/cadeau.png" draggable="false"
+                        width="35px" alt="">
+                </div>
+            </div>
+            <div class="rightUpgrade">
+                <p>Level : <span class="lvl">0</span></p>
+                <p><span class="clickpower">1</span> Click Power</p>
+            </div>
+        </div>
+        <div class="upgrade mrNeige flex" data-cout="10" data-lvl="0" data-cps="0" data-unlock="100"
+            onclick="achat(this,achatMrNeige)">
+            <div class="leftUpgrade">
+                <img src="Images/bonhommeDeNeige.png" draggable="false" width="100px" alt="" class="">
+            </div>
+            <div class="middleUpgrade flex">
+                <h4>Bonhomme de neige</h4>
+                <span class="descriptionUpgrade">Dévale les pistes pour ramener des cadeaux</span>
+                <div class="flex coutStyle">
+                    <span>Cout : </span><span class="cout">10</span><img src="Images/cadeau.png" draggable="false"
+                        width="35px" alt="">
+                </div>
+            </div>
+            <div class="rightUpgrade">
+                <p>Level : <span class="lvl">0</span></p>
+                <p>+ <span class="cps cpsMrNeige">0</span> CPS</p>
+            </div>
+        </div>
+        <div class="upgrade renne flex" data-cout="20" data-lvl="0" data-cps="0" data-unlock="400"
+            onclick="achat(this,achatRenne)">
+            <div class="leftUpgrade">
+                <img src="Images/renne.png" draggable="false" width="100px" alt="" class="">
+            </div>
+            <div class="middleUpgrade flex">
+                <h4>Renne Des Neiges</h4>
+                <span class="descriptionUpgrade">Indispensable pour la livraison des cadeaux</span>
+                <div class="flex coutStyle">
+                    <span>Cout : </span><span class="cout">20</span><img src="Images/cadeau.png" draggable="false"
+                        width="35px" alt="">
+                </div>
+            </div>
+            <div class="rightUpgrade">
+                <p>Level : <span class="lvl">0</span></p>
+                <p>+ <span class="cps cpsRenne">0</span> CPS</p>
+            </div>
+        </div>
+        <div class="upgrade PereNoel flex" data-cout="1000" data-lvl="0" data-cps="0" data-unlock="800"
+            onclick="achat(this,achatPereNoel)">
+            <div class="leftUpgrade">
+                <img src="Images/PereNoel.png" draggable="false" width="100px" alt="" class="">
+            </div>
+            <div class="middleUpgrade flex">
+                <h4>Pere Noel</h4>
+                <span class="descriptionUpgrade">Le Seul, L'unique</span>
+                <div class="flex coutStyle">
+                    <span>Cout : </span><span class="cout">1000</span><img src="Images/cadeau.png" width="35px"
+                        draggable="false" alt="">
+                </div>
+            </div>
+            <div class="rightUpgrade">
+                <p>Level : <span class="lvl">0</span></p>
+                <p>+ <span class="cps cpsPereNoel">0</span> CPS</p>
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <h3>Cadeau </h3>
+        <h3><span class="nombreCadeau">0</span></h3>
+        <div class="conteneurCadeauImage">
+            <img class="imageCadeau" src="Images/cadeau.png" width="400" height="" alt=""
+                onclick="incrementCadeau(event)" draggable="false">
+        </div>
+    </div>
+    <div class="right">
+
+    </div>
+
+
+</body>
+<script src="clicker.js"></script>
+<script src="neige_fond.js"></script>
+
+</html>
