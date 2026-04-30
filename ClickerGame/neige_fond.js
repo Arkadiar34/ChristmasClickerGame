@@ -1,5 +1,6 @@
-// ❄️ Chute de neige décorative — à coller avant </body>
-// Crée un <canvas> en fond de page, discret et parsemé
+//this file is AI generated
+//that was too technical for now, and i wanted to have a nice result
+//will come back to this later
 
 (function () {
   const canvas = document.createElement("canvas");
@@ -10,19 +11,19 @@
     left: "0",
     width: "100%",
     height: "100%",
-    pointerEvents: "none",   // le canvas n'intercepte aucun clic
-    zIndex: "0",             // derrière tout le contenu
+    pointerEvents: "none",   
+    zIndex: "0",            
     opacity: "0.55",
   });
   document.body.prepend(canvas);
 
-  // S'assure que le contenu du site reste au-dessus
+  
   document.body.style.position = "relative";
 
   const ctx = canvas.getContext("2d");
   let W, H, flakes;
 
-  // ── Dessin d'un flocon SVG-like ──────────────────────────────────────────
+ 
   function drawFlake(x, y, r, alpha) {
     ctx.save();
     ctx.translate(x, y);
@@ -35,13 +36,11 @@
       ctx.save();
       ctx.rotate((Math.PI / 3) * i);
 
-      // Branche principale
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(0, -r);
       ctx.stroke();
 
-      // Petites branches à 45 % et 72 %
       [0.45, 0.72].forEach((ratio) => {
         const len = r * 0.28;
         const py = -r * ratio;
@@ -55,7 +54,6 @@
       ctx.restore();
     }
 
-    // Point central
     ctx.beginPath();
     ctx.arc(0, 0, Math.max(0.8, r / 9), 0, Math.PI * 2);
     ctx.fillStyle = "#b4d8f7";
@@ -64,32 +62,29 @@
     ctx.restore();
   }
 
-  // ── Initialisation des flocons ───────────────────────────────────────────
   function init() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
 
-    // Densité volontairement faible : 1 flocon / ~22 000 px²
     const count = Math.floor((W * H) / 22000);
 
     flakes = Array.from({ length: count }, () => makeFlake());
   }
 
   function makeFlake(startAtTop = false) {
-    const r = 4 + Math.random() * 10; // rayon 4–14 px
+    const r = 4 + Math.random() * 10; 
     return {
       x: Math.random() * W,
       y: startAtTop ? -r * 2 : Math.random() * H,
       r,
-      speed: 0.3 + Math.random() * 0.7,   // chute lente
-      drift: (Math.random() - 0.5) * 0.4, // légère dérive horizontale
+      speed: 0.3 + Math.random() * 0.7,   
+      drift: (Math.random() - 0.5) * 0.4, 
       alpha: 0.2 + Math.random() * 0.55,
       angle: Math.random() * Math.PI * 2,
       spin: (Math.random() - 0.5) * 0.008,
     };
   }
 
-  // ── Boucle d'animation ───────────────────────────────────────────────────
   function animate() {
     ctx.clearRect(0, 0, W, H);
 
@@ -98,12 +93,10 @@
       f.x += f.drift;
       f.angle += f.spin;
 
-      // Recyclage discret quand le flocon sort en bas
       if (f.y > H + f.r * 2) {
         Object.assign(f, makeFlake(true));
         f.x = Math.random() * W;
       }
-      // Reboucle si trop à droite/gauche
       if (f.x < -f.r * 2) f.x = W + f.r;
       if (f.x > W + f.r * 2) f.x = -f.r;
 
